@@ -32,32 +32,32 @@ public class AdministratorServlet extends HttpServlet {
 		String cano=request.getParameter("cano");
 		
 		switch(opttype) {
-		case "Ö÷Ò³":
+		case "ä¸»é¡µ":
 			response.sendRedirect("Administrator\\Administrator.jsp");
 			break;
-		case "ĞÂÔöÈËÔ±":
+		case "æ–°å¢äººå‘˜":
 			response.sendRedirect("Administrator\\Administrator_add.jsp");
 			break;
-		case "²é¿´Ë«Ñ¡":
+		case "æŸ¥çœ‹åŒé€‰":
 			request.getSession().setAttribute("chooseList", chooseDao.getAllChoose());
 			response.sendRedirect("Administrator\\Administrator_check.jsp");
 			break;
-		case "Î¬»¤Ñ§ÉúĞÅÏ¢":
+		case "ç»´æŠ¤å­¦ç”Ÿä¿¡æ¯":
 			request.getSession().setAttribute("stulist",null );
 			response.sendRedirect("Administrator\\Administrator_mtStu.jsp");
 			break;
-		case "Î¬»¤½ÌÊ¦ĞÅÏ¢":
+		case "ç»´æŠ¤æ•™å¸ˆä¿¡æ¯":
 			request.getSession().setAttribute("tealist", null);
 			response.sendRedirect("Administrator\\Administrator_mtTea.jsp");
 			break;
-		case "Î¬»¤¹ÜÀíÔ±ĞÅÏ¢":
+		case "ç»´æŠ¤ç®¡ç†å‘˜ä¿¡æ¯":
 			request.getSession().setAttribute("cadList", cadDao.getAllCadminis());
 			response.sendRedirect("Administrator\\Administrator_mtCad.jsp");
 			break;
-		case "¸ü¸ÄÃÜÂë":
+		case "æ›´æ”¹å¯†ç ":
 			response.sendRedirect("Administrator\\Administrator_person.jsp");
 			break;
-		case "°²È«ÍË³ö":
+		case "å®‰å…¨é€€å‡º":
 			response.sendRedirect("Login.html ");
 			break;
 			
@@ -94,7 +94,7 @@ public class AdministratorServlet extends HttpServlet {
 			String addcno=request.getParameter("cno");
 			cadDao.addCadmini(addcano, addpwd, addcaname, addcno);
 			response.sendRedirect("Administrator\\Administrator_add.jsp");
-		case "È·¶¨Ñ¡Ôñ":
+		case "ç¡®å®šé€‰æ‹©":
 			String sno_q=request.getParameter("sno");
 			String tno_q=request.getParameter("tno");
 			System.out.println(sno_q+" "+tno_q);
@@ -102,14 +102,14 @@ public class AdministratorServlet extends HttpServlet {
 			request.getSession().setAttribute("chooseList", chooseDao.getAllChoose());
 			response.sendRedirect("Administrator\\Administrator_check.jsp");
 			break;
-		case "É¾³ıÑ¡Ôñ":
+		case "åˆ é™¤é€‰æ‹©":
 			String sno_d=request.getParameter("sno");
 			String tno_d=request.getParameter("tno");
 			chooseDao.deleteChooseBySnoTno(sno_d, tno_d);
 			request.getSession().setAttribute("chooseList", chooseDao.getAllChoose());
 			response.sendRedirect("Administrator\\Administrator_check.jsp");
 			break;
-		case "²éÑ¯Ñ¡Ôñ":
+		case "æŸ¥è¯¢é€‰æ‹©":
 			String inqueryType=request.getParameter("inqueryType");
 			String message=request.getParameter("message");
 			ArrayList<Choose> cholist=new ArrayList<Choose>();
@@ -127,7 +127,7 @@ public class AdministratorServlet extends HttpServlet {
 			request.getSession().setAttribute("chooseList", cholist);
 			response.sendRedirect("Administrator\\Administrator_check.jsp");
 			break;
-		case "²éÑ¯Ñ§Éú":
+		case "æŸ¥è¯¢å­¦ç”Ÿ":
 			String inqueryType2=request.getParameter("inqueryType");
 			String message2=request.getParameter("message");
 			ArrayList<Student> stulist=new ArrayList<Student>();
@@ -142,7 +142,7 @@ public class AdministratorServlet extends HttpServlet {
 			request.getSession().setAttribute("stulist",stulist );
 			response.sendRedirect("Administrator\\Administrator_mtStu.jsp");
 			break;
-		case "¸üĞÂÑ§ÉúĞÅÏ¢":
+		case "æ›´æ–°å­¦ç”Ÿä¿¡æ¯":
 			String sno1=request.getParameter("sno");
 			String sname1=request.getParameter("sname");
 			String sex=request.getParameter("sex");
@@ -154,12 +154,12 @@ public class AdministratorServlet extends HttpServlet {
 			stuDao.updateStudent(sno1, sname1, sex, grade2, school2, pwd, dis);
 			response.sendRedirect("Administrator\\Administrator_mtStu.jsp");
 			break;
-		case "É¾³ıÑ§Éú":
+		case "åˆ é™¤å­¦ç”Ÿ":
 			String sno2=request.getParameter("sno");
 			stuDao.deleteStudents(sno2);
 			response.sendRedirect("Administrator\\Administrator_mtStu.jsp");
 			break;
-		case "²éÑ¯½ÌÊ¦":
+		case "æŸ¥è¯¢æ•™å¸ˆ":
 			String inqueryType3=request.getParameter("inqueryType");
 			String message3=request.getParameter("message");
 			ArrayList<Teacher> tealist=new ArrayList<Teacher>();
@@ -174,7 +174,7 @@ public class AdministratorServlet extends HttpServlet {
 			request.getSession().setAttribute("tealist", tealist);
 			response.sendRedirect("Administrator\\Administrator_mtTea.jsp");
 			break;
-		case "¸üĞÂ½ÌÊ¦ĞÅÏ¢":
+		case "æ›´æ–°æ•™å¸ˆä¿¡æ¯":
 			String tno1=request.getParameter("tno");
 			String tname1=request.getParameter("tname");
 			String sex1=request.getParameter("sex");
@@ -188,12 +188,12 @@ public class AdministratorServlet extends HttpServlet {
 			teaDao.updateTeacherByTno(tno1, tname1, sex1, title1, leadnum1, intro1, pwd1, email1, dis1);
 			response.sendRedirect("Administrator\\Administrator_mtTea.jsp");
 			break;
-		case "É¾³ı½ÌÊ¦":
+		case "åˆ é™¤æ•™å¸ˆ":
 			String tno2=request.getParameter("tno");
 			teaDao.deleteByTno(tno2);
 			response.sendRedirect("Administrator\\Administrator_mtTea.jsp");
 			break;
-		case "¸üĞÂ¹ÜÀíÔ±":
+		case "æ›´æ–°ç®¡ç†å‘˜":
 			String update_cano=request.getParameter("cano");
 			String update_pwd=request.getParameter("pwd");
 			String update_caname=request.getParameter("caname");
@@ -202,7 +202,7 @@ public class AdministratorServlet extends HttpServlet {
 			request.getSession().setAttribute("cadList", cadDao.getAllCadminis());
 			response.sendRedirect("Administrator\\Administrator_mtCad.jsp");
 			break;
-		case "É¾³ı¹ÜÀíÔ±":
+		case "åˆ é™¤ç®¡ç†å‘˜":
 			String delete_cano=request.getParameter("cano");
 			cadDao.delete(delete_cano);
 			request.getSession().setAttribute("cadList", cadDao.getAllCadminis());
