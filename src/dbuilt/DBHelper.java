@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 public class DBHelper {
 	/* 定义driver,url,user,pwd等 */
 	private static String driver="com.mysql.jdbc.Driver";	// mysql.SQL数据库引擎
-	private static String url="jdbc:mysql://127.0.0.1:3306/j2ee";
+	private static String url="jdbc:mysql://127.0.0.1:3306/lyl";
 	private static String user = "root", pwd = "123";
 	private static Connection con;
 	

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>学生事务中心</title>
+		<link rel="stylesheet" href="../bs\css\bootstrap.css">
+		<script src="../bs/js/jquery-3.5.1.min.js"></script>
+		<script src="../bs/js/bootstrap.js"></script>
+		<script src="../bs/js/holder.js"></script>
+		
+		<style type="text/css">
+			*{
+				margin: 0 0 0 0;
+				padding: 0;				
+			}
+			#header{
+			   	height: 100px;
+			    width: 100;
+			    margin:0 0 10px 0;
+			   	background-image: url(../img/header3.jpg);	
+			   	background-repeat: no-repeat;
+				background-size: 100%;
+				positon:relative
+		   }
+			
+		</style>		
+	</head>
+	
+	<body>
+		
+		
+			
+			<div id="header">
+			</div> 
+			<div class="container">
+				<nav class="navbar navbar-default">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand" href="#">校管理员事务中心</a>
+				    </div>
+				    
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <li><a href="../Manager.action?func=主页">主页 <span class="sr-only">(current)</span></a></li>
+				        <li><a href="../Manager.action?func=学生信息管理">学生信息管理</a></li>
+				        <li><a href="../Manager.action?func=教师信息管理">教师信息管理</a></li>
+				        <li><a href="../Manager.action?func=管理员信息管理">管理员信息管理</a></li>
+				        <li><a href="../Manager.action?func=双选信息管理">双选信息管理</a></li>
+				        <li><a href="../Manager.action?func=安全退出">安全退出</a></li>
+				      </ul>
+				      <form class="navbar-form navbar-right">
+				        <div class="form-group">
+				         	 <input type="text" class="form-control" placeholder="Search">
+				        </div>
+				        	<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+				      </form>
+				    </div>
+				  </div>
+				</nav>
+				
+				<div class="jumbotron">
+				  <h1>欢迎来到研究生管理系统</h1>
+				  <p>&emsp;&emsp;您当前位于校管理员事务中心，您具有该系统的最高权限，可自由增删改、查看所有的学生、教师、学院管理员、双选情况信息。</p>
+				  
+				</div>
+				
+			</div>
+		
+		
+		
+	</body>
+</html>

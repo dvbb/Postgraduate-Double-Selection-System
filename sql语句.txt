@@ -1,0 +1,139 @@
+****************创建学生表****************
+CREATE TABLE Student(
+ Sno varchar(8)   not null,
+ Sname varchar(20)  ,
+sex varchar(2),
+ grade  int(30),
+ school varchar(30),
+ pwd  varchar(20),
+discipline varchar(20),
+email  varchar(20),
+phone  varchar(20),
+ Cno   int(2),
+ primary key(Sno)
+)character set=utf8;
+
+插入一些数据。
+insert into student values
+("20170001","张三","男",350,"上海交通大学","123456","软件工程","43962214@163.com","18821502150",01);
+
+****************创建教师表****************
+CREATE TABLE Teacher(
+Tno varchar(6) not null,
+Tname varchar(20),
+sex varchar(2),
+title varchar(20),
+leadnum int(2),
+intro varchar(200),
+pwd varchar(20),
+email  varchar(20),
+discipline varchar(20),
+Cno int(2),
+primary key(Tno)
+)character set=utf8;
+
+插入一些数据。
+insert into teacher values
+('t01003','谭维','女','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01);
+
+
+****************创建管理员表****************
+CREATE TABLE manager(
+Mno  varchar(4) not null,
+pwd varchar(20),
+phone  varchar(20),
+primary key(Mno)
+)character set=utf8;
+
+插入一些数据。
+insert into manager values
+("m001","123456","18821502150");
+
+****************创建学院管理员表****************
+
+CREATE TABLE cmanager(
+Cmno  varchar(5) not null,
+pwd varchar(20),
+Cmname varchar(20),
+Cno int(2),
+phone  varchar(20),
+primary key(Cmno)
+)character set=utf8;
+
+插入一些数据。
+insert into cmanager values
+("c0101","123456","管泽",01,"18821502150");
+
+****************创建学院表****************
+CREATE TABLE college(
+Cno int(2) not null,
+Cname varchar(20),
+primary key(Cno)
+)character set=utf8;
+
+插入一些数据。
+insert into college values
+(01,"计算机学院"),
+(02,"数理学院");
+
+
+****************创建Choose表****************
+CREATE TABLE choose(
+Sno varchar(8)   not null,
+Tno varchar(6) not null,
+Cno int(2) not null,
+status int(1) not null,
+wish int(1) not null,
+primary key(Sno,wish)
+)character set=utf8;
+
+
+
+****************所有表建立完成后，添加外键约束****************
+
+alter table student ADD foreign key(Cno) references college(Cno);
+alter table Teacher ADD foreign key(Cno) references college(Cno);
+alter table cmanager ADD foreign key(Cno) references college(Cno);
+
+Choose表加入外键。
+alter table Choose ADD foreign key(Sno) references student(Sno);
+alter table Choose ADD foreign key(Tno) references teacher(Tno);
+alter table Choose ADD foreign key(Cno) references college(Cno);
+
+
+****************批量导入一下数据****************
+教师表
+insert into teacher values
+('t01002','隆采梦','女','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01003','耿专','女','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01004','慈初珍','女','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01005','庚芷天','女','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01006','禾翠柏','女','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01007','郜婷秀','男','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01008','谭弘济','男','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01009','谭合','男','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01010','覃和璧','男','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01011','功卉','女','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01),
+('t01012','闽琛丽','女','副教授',3,'一位好老师','123','tweiwei@qq.com','软件工程',01);
+
+
+学生表：
+insert into student values
+("20170002","勾慧丽","女",350,"上海交通大学","123456","软件工程","43962214@163.com","18821502150",01),
+("20170003","荤楚云","女",350,"上海交通大学","123456","软件工程","43962214@163.com","18821502150",01),
+("20170004","茂承弼","男",350,"上海交通大学","123456","软件工程","43962214@163.com","18821502150",01),
+("20170005","律才俊","男",350,"上海交通大学","123456","软件工程","43962214@163.com","18821502150",01),
+("20170006","吉晴虹","女",350,"上海交通大学","123456","软件工程","43962214@163.com","18821502150",01),
+("20170007","秋新竹","女",350,"上海交通大学","123456","软件工程","43962214@163.com","18821502150",01),
+("20170008","揭凡雁","男",350,"上海交通大学","123456","软件工程","43962214@163.com","18821502150",01);
+
+insert into student values
+("20170188","阿德","男",350,"上海交通大学","123456","数理基础科学","43962214@163.com","18821502150",02),
+("20170189","焕琪","男",350,"上海交通大学","123456","数理基础科学","43962214@163.com","18821502150",02)；
+
+学院管理员：
+insert into cmanager values
+("c0102","123456","管泽",01,"18821502150"),
+("c0103","123456","黄蜂",01,"18821502150"),
+("c0104","123456","樊璇",01,"18821502150");
+

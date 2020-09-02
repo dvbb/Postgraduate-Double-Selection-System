@@ -1,14 +1,10 @@
 package entity;
 
 public class Teacher {
-	String Tno,Tname,sex,title,intro,pwd,email,discipline;
-	int leadnum,Cno;
-	public Teacher() {	
-	}
-	
-	
+	String Tno,Tname,sex,title,intro,pwd,email,discipline,leadnum,Cno;	
+	public Teacher() {}
 	public Teacher(String tno, String tname, String sex, String title, String intro, String pwd, String email,
-			String discipline, int leadnum, int cno) {
+			String discipline, String leadnum, String cno) {
 		super();
 		Tno = tno;
 		Tname = tname;
@@ -21,8 +17,6 @@ public class Teacher {
 		this.leadnum = leadnum;
 		Cno = cno;
 	}
-
-
 	public String getTno() {
 		return Tno;
 	}
@@ -59,18 +53,6 @@ public class Teacher {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public int getLeadnum() {
-		return leadnum;
-	}
-	public void setLeadnum(int leadnum) {
-		this.leadnum = leadnum;
-	}
-	public int getCno() {
-		return Cno;
-	}
-	public void setCno(int cno) {
-		Cno = cno;
-	}
 	public String getEmail() {
 		return email;
 	}
@@ -83,4 +65,19 @@ public class Teacher {
 	public void setDiscipline(String discipline) {
 		this.discipline = discipline;
 	}
+	public String getLeadnum() {
+		return leadnum;
+	}
+	public void setLeadnum(String leadnum) {
+		this.leadnum = leadnum;
+	}
+	public String getCno() {
+		return Cno;
+	}
+	public void setCno(String cno) {
+		Cno = cno;
+	}
+	
+	
+	
 }

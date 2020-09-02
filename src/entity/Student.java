@@ -1,24 +1,22 @@
 package entity;
 
 public class Student {
-	private  String Sno,Sname,sex,school,pwd,discipline;
-	private  int grade,Cno;
-	
-	
-	public Student() {	
-	}
-	public Student(String sno, String sname, String sex, String school, String pwd,String discipline, int grade, int cno) {
+	 String Sno,Sname,sex,school,pwd,discipline,email,phone,grade,Cno;
+	 public Student() {}
+	public Student(String sno, String sname, String sex, String school, String pwd, String discipline, String email,
+			String phone, String grade, String cno) {
 		super();
 		Sno = sno;
 		Sname = sname;
 		this.sex = sex;
 		this.school = school;
 		this.pwd = pwd;
+		this.discipline = discipline;
+		this.email = email;
+		this.phone = phone;
 		this.grade = grade;
-		this.discipline=discipline;
 		Cno = cno;
 	}
-	
 	public String getSno() {
 		return Sno;
 	}
@@ -49,35 +47,38 @@ public class Student {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public int getGrade() {
-		return grade;
-	}
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
-	public int getCno() {
-		return Cno;
-	}
-	public void setCno(int cno) {
-		Cno = cno;
-	}
-
-	public boolean isNull() {
-		if(Sno==null)
-			return true;
-		return false;
-		
-	}
 	public String getDiscipline() {
 		return discipline;
 	}
 	public void setDiscipline(String discipline) {
 		this.discipline = discipline;
 	}
-
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	public String getCno() {
+		return Cno;
+	}
+	public void setCno(String cno) {
+		Cno = cno;
+	} 
 	
 	
-	
-	
+	 
+	 
 }
