@@ -17,4 +17,4 @@
 ### 校管理员主页界面
 ![Image text](https://raw.githubusercontent.com/dvbb/Postgraduate-Double-Selection-System/master/WebContent/img/demo2.png)
 ### 校管理员操作界面
-![Image text](https://raw.githubusercontent.com/dvbb/Postgraduate-Double-Selection-System/master/WebContent/img/domo3.png
+![Image text](https://raw.githubusercontent.com/dvbb/Postgraduate-Double-Selection-System/master/WebContent/img/domo3.png)
