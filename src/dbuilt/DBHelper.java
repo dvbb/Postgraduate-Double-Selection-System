@@ -8,13 +8,18 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 
 public class DBHelper {
-	/* ¶¨Òådriver,url,user,pwdµÈ */
-	private static String driver="com.mysql.jdbc.Driver";	// mysql.SQLÊı¾İ¿âÒıÇæ
-	private static String url="jdbc:mysql://127.0.0.1:3306/lyl";
-	private static String user = "root", pwd = "123";
+	/* å®šä¹‰driver,url,user,pwdç­‰ */
+	private static String driver="com.mysql.jdbc.Driver";	// mysql.SQLæ•°æ®åº“å¼•æ“
+// 	private static String url="jdbc:mysql://127.0.0.1:3306/lyl";
+// 	private static String user = "root", pwd = "123";
+	
+	//æä¾›äº†ç½‘ç»œæ•°æ®åº“æ¥å£ï¼Œè‡³2021.11.1
+	private static String url="jdbc:mysql://81.68.214.241:3306/DoubleSelect";
+	private static String user = "DoubleSelect", pwd = "RkwR4b2L4ssW4TyY";
+	
 	private static Connection con;
 	
-    /*¼ÓÔØÇı¶¯³ÌĞò*/
+    /*åŠ è½½é©±åŠ¨ç¨‹åº*/
 	static {
 		try {
 			Class.forName(driver);
@@ -23,7 +28,7 @@ public class DBHelper {
 		}
 	}
 	
-    /*Ö´ĞĞÔöÉ¾¸Ä²Ù×÷*/
+    /*æ‰§è¡Œå¢åˆ æ”¹æ“ä½œ*/
 	public static void executeUpdate(String sql) {
 		try {
 			con = DriverManager.getConnection(url, user, pwd);
@@ -35,7 +40,7 @@ public class DBHelper {
 		}
 	}
 	
-	/*Ö´ĞĞ¶à²ÎÊıÔöÉ¾¸Ä²Ù×÷*/
+	/*æ‰§è¡Œå¤šå‚æ•°å¢åˆ æ”¹æ“ä½œ*/
 	@SuppressWarnings("deprecation")
 	public static int executeUpdate(String sql,Object... params) {
 		int r=0;
@@ -45,7 +50,7 @@ public class DBHelper {
 			int count=1;
 			for(Object param:params) {	
 				if(param instanceof String)
-					pcmd.setString(count++, param.toString());	//ÏÈÊ¹ÓÃcount£¬countÔÙ×ÔÔö
+					pcmd.setString(count++, param.toString());	//å…ˆä½¿ç”¨countï¼Œcountå†è‡ªå¢
 				else if(param instanceof Integer)
 					pcmd.setInt(count++, new Integer(param.toString()));
 				else if(param instanceof Double)
@@ -61,15 +66,15 @@ public class DBHelper {
 		return r;
 	}
 	
-	/*Ö´ĞĞ²éÑ¯²Ù×÷*/
+	/*æ‰§è¡ŒæŸ¥è¯¢æ“ä½œ*/
 	public static ResultSet executeQuery(String sql) {
 		ResultSet rs = null;
 		try {
 			con = DriverManager.getConnection(url, user, pwd);
 //			Statement cmd = con.createStatement();
-//			//´´½¨Ö§³ÖÒÆ¶¯µÄÓÎ±ê
+//			//åˆ›å»ºæ”¯æŒç§»åŠ¨çš„æ¸¸æ ‡
 //			Statement cmd=con.createStatement (ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			//´´½¨Ö§³Ö¸üĞÂµÄÓÎ±ê
+			//åˆ›å»ºæ”¯æŒæ›´æ–°çš„æ¸¸æ ‡
 			Statement cmd=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
 			rs = cmd.executeQuery(sql);
 		} catch (Exception ex) { 
@@ -77,7 +82,7 @@ public class DBHelper {
 		}
 		return rs;
 	}
-	/*Ö´ĞĞ¶à²ÎÊı²éÑ¯²Ù×÷*/
+	/*æ‰§è¡Œå¤šå‚æ•°æŸ¥è¯¢æ“ä½œ*/
 	public static ResultSet executeQuery(String sql,Object... objects) {
 		ResultSet rs = null;
 		try {
@@ -90,7 +95,7 @@ public class DBHelper {
 		return rs;
 	}
 	
-   /*Ö´ĞĞ¹Ø±ÕÊı¾İ¿âÁ¬½Ó²Ù×÷*/
+   /*æ‰§è¡Œå…³é—­æ•°æ®åº“è¿æ¥æ“ä½œ*/
 	public static void closeConnection() {
 		try {
            if(!con.isClosed())
